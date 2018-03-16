@@ -1,10 +1,17 @@
 {
-  "name": "sol-tcr",
+  "name": "transparency-tcr",
   "version": "0.0.1",
-  "description": "A generic, string-keyed TCR in Solidity",
+  "description": "A TCR for transparent projects",
+  "files": [
+    "build",
+    "lib",
+    "src"
+  ],
   "scripts": {
     "compile": "truffle compile",
     "install": "truffle install",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "deploy": "truffle migrate --network local",
     "deploy-rinkeby": "truffle migrate --network rinkeby",
     "deploy-mainnet": "truffle migrate --network mainnet",
     "test": "npm run lint ./ && truffle test",
@@ -30,6 +37,7 @@
   "devDependencies": {
     "eslint": "4.15.0",
     "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.8.0"
+    "eslint-plugin-import": "2.8.0",
+    "cross-env": "^5.0.4"
   }
 }
